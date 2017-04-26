@@ -1,0 +1,27 @@
+{
+  "name": "winelistidentifier",
+  "version": "1.0.0",
+  "description": "app to get details about wine on wine list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicklee100/winelistidentifier.git"
+  },
+  "author": "nicklee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicklee100/winelistidentifier/issues"
+  },
+  "homepage": "https://github.com/nicklee100/winelistidentifier#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0"
+  }
+}
