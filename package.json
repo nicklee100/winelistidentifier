@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nicklee100/winelistidentifier#readme",
   "dependencies": {
+    "@google-cloud/vision": "^0.11.2",
     "express": "^4.15.2"
   },
   "devDependencies": {
