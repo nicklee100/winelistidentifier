@@ -2,3 +2,5 @@
 node_modules/*
 npm-debug.log 
 WineList-aca82c79d0aa.json
+.vscode/*
+apikey.js

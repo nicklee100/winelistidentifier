@@ -1,0 +1,46 @@
+
+
+Simple api queries worth searching
+ 2014 tolosa no oak chardonnay
+
+
+ rp('http://services.wine.com/api/beta2/service.svc/JSON/catalog?apikey=aebc9c3c8a4c05c136cc0ddee3269415&size=25&filter=categories(7155+124)term=mondavi+cab')
+
+http://services.wine.com/api/beta2/service.svc/format/catalog?search=2014+tolosa+no+oak+chardonnay&size=5&offset=10&apikey=aebc9c3c8a4c05c136cc0ddee3269415
+
+
+
+
+//working example to do basic search
+ rp('http://services.wine.com/api/beta2/service.svc/JSON/catalog?apikey=aebc9c3c8a4c05c136cc0ddee3269415&search=2014+tolosa+no+oak+chardonnay')
+ &search=2014+tolosa+no+oak+chardonnay'
+ &search=
+
+
+
+
+ //rp('http://services.wine.com/api/beta2/service.svc/JSON/catalog?apikey=aebc9c3c8a4c05c136cc0ddee3269415&search=2014+tolosa+no+oak+chardonnay')
+
+//http://services.wine.com/api/beta2/service.svc/format/resource?apikey=key&parameters
+
+//catalog?search=2014+tolosa+no+oak+chardonnay
+// catalog?search=mondavi+cab&size=5&offset=10&apikey=key    returns all products that contain the terms mondavi and cab starting at record #10
+
+
+
+
+ // rp('http://services.wine.com/api/beta2/service.svc/JSON/catalog?apikey=aebc9c3c8a4c05c136cc0ddee3269415&size=25&offset=10&filter=categories(7155+124)term=mondavi+cab')
+  // .then(function(data){
+  //   console.log(prettyjson.render(data,{
+  //     keysColor: 'green',
+  //   dashColor: 'magenta',
+  //   stringColor: 'green'
+  //   }))
+  // })
+  // .catch(function(err) {
+  //   console.log(err);
+  // })
+
+
+
+

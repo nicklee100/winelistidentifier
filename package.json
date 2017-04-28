@@ -19,7 +19,8 @@
   "homepage": "https://github.com/nicklee100/winelistidentifier#readme",
   "dependencies": {
     "@google-cloud/vision": "^0.11.2",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "prettyjson": "^1.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
