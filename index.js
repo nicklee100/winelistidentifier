@@ -6,9 +6,8 @@ const requesting = require('request-promise')
 const prettyjson = require('prettyjson')
 const jsonFormat = require('json-format')
 
-const  wineApiKey= require('./apikey')
-
-
+const wineApiKey = require('./apikey').wineApiKey
+const snoothApiKey = require('./apikey').snoothApiKey
 
 //wine.com variables
 const apipath = 'http://services.wine.com/api/beta2/service.svc/JSON/'
