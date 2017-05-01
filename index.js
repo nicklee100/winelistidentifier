@@ -10,9 +10,9 @@ const jsonFormat = require('json-format')
 // const snoothApiKey = require('./apikey').snoothApiKey
 // const ipaddress = require('./apikey').ipaddress
 
-process.env.WINEAPIKEY;
-process.env.SNOOTHAPIKEY;
-process.env.IPADDRESS;
+const wineApiKey = process.env.WINEAPIKEY;
+const snoothApiKey = process.env.SNOOTHAPIKEY;
+const ipaddress = process.env.IPADDRESS;
 
 //wine.com variables
 const apipath = 'http://services.wine.com/api/beta2/service.svc/JSON/'
