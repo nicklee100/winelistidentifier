@@ -8,6 +8,7 @@ const jsonFormat = require('json-format')
 
 const wineApiKey = require('./apikey').wineApiKey
 const snoothApiKey = require('./apikey').snoothApiKey
+const ipaddress = require('./apikey').ipaddress
 
 //wine.com variables
 const apipath = 'http://services.wine.com/api/beta2/service.svc/JSON/'
@@ -15,10 +16,15 @@ const resoure = 'catalog'
 const parameters = 'search'
 let wineterms = ['2014', 'tolosa', 'no', 'oak','chardonnay']
 
+//snooth.com variables
+const snoothVariables = {
+  apipath: 'http://api.snooth.com/wines/?akey='
+}
+
 //google vision code
 const VisionProjectId = 'winelist-165917'
 const textinarray = []
-const fileName = './list.jpg';
+const filepath = './list.jpg';
 
 
 const visionClient = Vision({
@@ -32,6 +38,7 @@ function Reading(fileName) {
   visionClient.detectText(fileName)
     .then((results) => {
      let detections = results[0][0];
+     console.log('theres are detions', detections)
      return detections.split('\n')
      console.log('Text:', detections);
      //detections.forEach((text) => console.log(text));
@@ -39,6 +46,7 @@ function Reading(fileName) {
   .then(data => {
    return data.filter(filterWineNames)
   })
+  .catch(console.log('err'))
 }
 
 //wine.com api
@@ -57,6 +65,8 @@ function bottleLookUp(urlpath){
   })
 
 }
+
+
 
 //utility functions
 
@@ -91,20 +101,39 @@ function searchBuilder(termsarray) {
 }
 
 
+
+//function for snooth
+
+function snoothLookUp(path){
+  requesting(path)
+    .then(function(data){
+        console.log(data)
+      //console.log(JSON.parse(data))
+    })
+}
+//apipath: 'http://api.snooth.com/wines/?akey='+snoothApiKey+'&ip='+ipaddress+'&q=napa+cabernet&xp=30',
+
+function snoothUrlBuilder(termsarray){
+  let terms = termsarray.join('+');
+  let path = snoothVariables.apipath + snoothApiKey + '&ip=' + ipaddress + '&=' + terms
+  return path
+}
+
+
 //let urlpath = searchBuilder(array)
 
-bottleLookUp(searchBuilder(wineterms))
+//bottleLookUp(searchBuilder(wineterms))
+//snoothLookUp(snoothUrlBuilder(wineterms))
+
+
+//console.log(Reading(filepath));
 
 
 
+app.get('/', function (req,res){
+  res.send('server running')
+})
 
-
-
-
-// app.get('/', function (req,res){
-//   res.send('server running')
-// })
-
-// app.listen(3000, function() {
-//   console.log('serving running on 3000')
-//   })
+app.listen(3000, function() {
+  console.log('serving running on 3000')
+  })
