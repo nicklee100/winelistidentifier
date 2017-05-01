@@ -12,7 +12,7 @@ const jsonFormat = require('json-format')
 
 process.env.WINEAPIKEY;
 process.env.SNOOTHAPIKEY;
-process.env>IPADDRESS;
+process.env.IPADDRESS;
 
 //wine.com variables
 const apipath = 'http://services.wine.com/api/beta2/service.svc/JSON/'
