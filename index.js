@@ -6,13 +6,20 @@ const requesting = require('request-promise')
 const prettyjson = require('prettyjson')
 const jsonFormat = require('json-format')
 
-// const wineApiKey = require('./apikey').wineApiKey
-// const snoothApiKey = require('./apikey').snoothApiKey
-// const ipaddress = require('./apikey').ipaddress
+const wineApiKey = require('./apikey').wineApiKey
+const snoothApiKey = require('./apikey').snoothApiKey
+const ipaddress = require('./apikey').ipaddress
 
-const wineApiKey = process.env.WINEAPIKEY;
-const snoothApiKey = process.env.SNOOTHAPIKEY;
-const ipaddress = process.env.IPADDRESS;
+
+var bodyParser = require('body-parser');
+
+
+// Put these statements before you define any routes.
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+// const wineApiKey = process.env.WINEAPIKEY;
+// const snoothApiKey = process.env.SNOOTHAPIKEY;
+// const ipaddress = process.env.IPADDRESS;
 
 //wine.com variables
 const apipath = 'http://services.wine.com/api/beta2/service.svc/JSON/'
@@ -111,8 +118,8 @@ function searchBuilder(termsarray) {
 function snoothLookUp(path){
   requesting(path)
     .then(function(data){
-        console.log(data)
-      //console.log(JSON.parse(data))
+        //console.log(data)
+      console.log(JSON.parse(data))
     })
 }
 //apipath: 'http://api.snooth.com/wines/?akey='+snoothApiKey+'&ip='+ipaddress+'&q=napa+cabernet&xp=30',
@@ -126,7 +133,7 @@ function snoothUrlBuilder(termsarray){
 
 //let urlpath = searchBuilder(array)
 
-//bottleLookUp(searchBuilder(wineterms))
+bottleLookUp(searchBuilder(wineterms))
 //snoothLookUp(snoothUrlBuilder(wineterms))
 
 
@@ -135,7 +142,14 @@ function snoothUrlBuilder(termsarray){
 
 
 app.get('/', function (req,res){
+    console.log('get route hit')
   res.send('server running')
+})
+
+app.post('/picture', function(req,res){
+    console.log('good')
+    console.log('req.body', req.body.data)
+    res.send('sucess').status(200);
 })
 
 app.listen(8080, function() {
